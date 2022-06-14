@@ -22,12 +22,12 @@ package models
 
 type Product struct {
 	Title          *string        `json:"title" db:"title"`
-	Tags           []Tags         `json:"tags"`
+	Tags           []Tag          `json:"tags"`
 	Description    string         `json:"description,omitempty" db:"description"`
 	Price          string         `json:"price,omitempty" db:"price"`
 	Additionalinfo Additionalinfo `json:"additionalinfo,omitempty"`
 }
-type Tags struct {
+type Tag struct {
 	ID  int    `json:"id" db:"id"`
 	Tag string `json:"tag" db:"tag"`
 }
@@ -35,4 +35,3 @@ type Additionalinfo struct {
 	Title   string `json:"title" db:"title"`
 	Comment string `json:"comment" db:"comment"`
 }
-
