@@ -110,8 +110,7 @@ func ListProducts(db *sqlx.DB) ([]models.Product, error) {
 	listProductQuery := "SELECT title,description,price from product;"
 	rows, err := db.Queryx(listProductQuery)
 	if err != nil {
-		fmt.Println(err)
-		panic(err.Error())
+		log.Println(err)
 	}
 	for rows.Next() {
 		var p models.Product
@@ -119,8 +118,7 @@ func ListProducts(db *sqlx.DB) ([]models.Product, error) {
 		var tt []models.Tag
 		err := rows.StructScan(&p)
 		if err != nil {
-			fmt.Println(err)
-			panic(err.Error())
+			log.Println(err)
 		}
 		var id int
 		queryID := fmt.Sprintf("SELECT tags FROM product where title=\"%s\";", *p.Title)
@@ -144,4 +142,3 @@ func ListProducts(db *sqlx.DB) ([]models.Product, error) {
 	}
 	return pp, err
 }
-
