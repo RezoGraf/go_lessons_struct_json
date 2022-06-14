@@ -103,6 +103,7 @@ func writeDB(db *sqlx.DB) func(*gin.Context) {
 	}
 }
 
+
 func apiErrorResponse(code int, message string, c *gin.Context) {
 	jsonError := ResponseJson{
 		Code:    code,
